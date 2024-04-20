@@ -26,12 +26,7 @@ export const WorkoutForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(newWorkout);
-
-    // const { title, reps, load } = newWorkout
-    // const workout = { title, reps, load };
-    // console.log(title);
-    // console.log(workout);
-
+    
     try {
       const response = await fetch('/api/workouts', {
         method: 'POST',
@@ -54,7 +49,7 @@ export const WorkoutForm = () => {
       console.error('Error:', error);
     }
 
-    // clearForm();
+    clearForm();
   };
 
   return (
