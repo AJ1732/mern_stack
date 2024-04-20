@@ -1,0 +1,20 @@
+form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+form label {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+form input {
+  padding: 7px 5px;
+  border-radius: 3px;
+  background-color: #00000080;
+}
+
+form input:focus {
+  border: none;
+  outline: 1px solid #646cff;
+}
