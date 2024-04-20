@@ -9,7 +9,7 @@ const Main = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const response = await fetch('/api/workouts');
+        const response = await fetch('/api/workouts/');
         const data = await response.json();
         console.log(data);
 
@@ -48,7 +48,7 @@ const Main = () => {
 
         <div className='mt-4 | grid gap-4 lg:grid-cols-2 justify-items-stretch'>
           {[1, 2, 3].map( item =>(
-              <DetailsCard cardKey={item} />
+              <DetailsCard cardKey={item} id={item} />
           ))}
         </div>
       </section>

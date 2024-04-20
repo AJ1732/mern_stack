@@ -29,7 +29,7 @@ export const WorkoutForm = () => {
     console.log(newWorkout);
     
     try {
-      const response = await fetch('/api/workouts', {
+      const response = await fetch('/api/workouts/', {
         method: 'POST',
         body: JSON.stringify(newWorkout),
         headers: {
