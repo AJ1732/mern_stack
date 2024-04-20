@@ -4,7 +4,7 @@ const { verifyID, verifyWorkout } = require('../utils/verify')
 // CONTROLLER FUNCTIONS
 const getAllWorkouts = async (req, res) => {
   const allWorkouts = await Workout.find({}).sort({ createdAt: -1 })  
-  res.status(200).json(allWorkouts) 
+  return res.status(200).json(allWorkouts) 
 }
 
 const getSingleWorkout = async (req, res) => {
