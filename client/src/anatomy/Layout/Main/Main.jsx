@@ -23,10 +23,6 @@ const Main = () => {
       }
     }
 
-    const text = '[{"first": "Ford", "second":"BMW", "third":"Audi"} ]';
-    const myArr = JSON.parse(text);
-    console.log(myArr)
-
     fetchWorkouts();
   }, [dispatch])
   console.log(workouts);
@@ -48,7 +44,7 @@ const Main = () => {
 
         <div className='mt-4 | grid gap-4 lg:grid-cols-2 justify-items-stretch'>
           {[1, 2, 3].map( item =>(
-              <DetailsCard cardKey={item} id={item} />
+              <DetailsCard key={item} id={item} />
           ))}
         </div>
       </section>

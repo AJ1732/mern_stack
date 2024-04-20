@@ -69,7 +69,7 @@ export const WorkoutForm = () => {
             name="title" 
             value={newWorkout.title}
             onChange={handleChange}
-            className={emptyFields.includes('title') && 'bg-red-500' }
+            // className={emptyFields.includes('title') && 'bg-red-500' }
            />
         </div>
         
@@ -83,7 +83,7 @@ export const WorkoutForm = () => {
             min={0}
             value={newWorkout.reps}
             onChange={handleChange}
-            className={emptyFields.includes('reps') && 'bg-red-500' }
+            // className={emptyFields.includes('reps') && 'bg-red-500' }
            />
         </div>
 
@@ -97,7 +97,7 @@ export const WorkoutForm = () => {
             min={0}
             value={newWorkout.load}
             onChange={handleChange}
-            className={emptyFields.includes('load') && 'bg-red-500' }
+            // className={emptyFields.includes('load') && 'bg-red-500' }
            />
         </div>
 
