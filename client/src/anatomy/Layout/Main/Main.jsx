@@ -1,20 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { DetailsCard } from '../../../components/Card/Cards';
 import { WorkoutForm } from '../../../components/Form/Forms';
+import { useWorkoutContext } from '../../../context/ContextProvider';
 
 const Main = () => {
-  const [ workouts, setWorkouts ] = useState(null);
+  const { workouts, dispatch } = useWorkoutContext()
 
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
         const response = await fetch('/api/workouts');
-        if (!response.ok) {
-          throw new Error('Request failed with status ' + response.status);
-        }
         const data = await response.json();
         console.log(data);
-        // setWorkouts(data);
+
+        if (response.ok) {
+          dispatch({ type: 'ALL_WORKOUTS', payload: data })
+        } else if (!response.ok)  {
+          throw new Error('Request failed with status ' + response.status);
+        }
       } catch (error) {
         console.error('Error:', error);
       }

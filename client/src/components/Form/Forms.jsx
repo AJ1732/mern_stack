@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Form.css'
 import { json } from 'react-router-dom';
+import { useWorkoutContext } from '../../context/ContextProvider';
 
 export const WorkoutForm = () => {
   // STATE
@@ -9,8 +10,8 @@ export const WorkoutForm = () => {
     reps: "",
     load: ""
   })
-
   const [ error, setError ] = useState(null);
+  const { dispatch } = useWorkoutContext();
 
   // FORM FUNCTIONS
   // *To clear the form
@@ -27,27 +28,28 @@ export const WorkoutForm = () => {
     e.preventDefault();
     console.log(newWorkout);
     
-    // try {
-    //   const response = await fetch('/api/workouts', {
-    //     method: 'POST',
-    //     body: JSON.stringify(newWorkout),
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     }
-    //   });
-    //   const data = await response.json();
-    //   console.log(data);
+    try {
+      const response = await fetch('/api/workouts', {
+        method: 'POST',
+        body: JSON.stringify(newWorkout),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const data = await response.json();
+      console.log(data);
 
-    //   if (!response.ok) {
-    //     setError(json.error)
-    //     throw new Error('Request failed with status ' + response.status);
-    //   } else {
-    //     setError(null);
-    //     console.log('New Workout Posted');
-    //   }
-    // } catch (error) {
-    //   console.error('Error:', error);
-    // }
+      if (response.ok) {
+        setError(null);
+        dispatch({ type: 'CREATE_WORKOUTS', payload: data })
+        console.log('New Workout Posted');
+      } else if (!response.ok) {
+        setError(json.error)
+        throw new Error('Request failed with status ' + response.status);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
 
     clearForm();
   };
