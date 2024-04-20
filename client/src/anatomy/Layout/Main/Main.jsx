@@ -12,7 +12,6 @@ const Main = () => {
         if (!response.ok) {
           throw new Error('Request failed with status ' + response.status);
         }
-        
         const data = await response.json();
         console.log(data);
         // setWorkouts(data);
@@ -46,7 +45,7 @@ const Main = () => {
 
         <div className='mt-4 | grid gap-4 lg:grid-cols-2 justify-items-stretch'>
           {[1, 2, 3].map( item =>(
-              <DetailsCard key={item} />
+              <DetailsCard cardKey={item} />
           ))}
         </div>
       </section>
