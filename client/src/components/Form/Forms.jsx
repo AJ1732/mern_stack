@@ -27,27 +27,27 @@ export const WorkoutForm = () => {
     e.preventDefault();
     console.log(newWorkout);
     
-    try {
-      const response = await fetch('/api/workouts', {
-        method: 'POST',
-        body: JSON.stringify(newWorkout),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      const data = await response.json();
-      console.log(data);
+    // try {
+    //   const response = await fetch('/api/workouts', {
+    //     method: 'POST',
+    //     body: JSON.stringify(newWorkout),
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     }
+    //   });
+    //   const data = await response.json();
+    //   console.log(data);
 
-      if (!response.ok) {
-        setError(json.error)
-        throw new Error('Request failed with status ' + response.status);
-      } else {
-        setError(null);
-        console.log('New Workout Posted');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    //   if (!response.ok) {
+    //     setError(json.error)
+    //     throw new Error('Request failed with status ' + response.status);
+    //   } else {
+    //     setError(null);
+    //     console.log('New Workout Posted');
+    //   }
+    // } catch (error) {
+    //   console.error('Error:', error);
+    // }
 
     clearForm();
   };
