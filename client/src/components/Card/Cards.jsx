@@ -26,7 +26,7 @@ export const DetailsCard = ({ id }) => {
   }
 
   return (
-    <article className='relative | max-w-96 min-w-72 | bg-shade p-5 space-y-2'>
+    <article className='relative | max-w-[500px] min-w-72 | bg-shade p-5 space-y-2'>
       <h3 className='text-lg hover:text-primary | transition-all delay-100'>Workout Title</h3>
 
       <div className='px-2 | flex justify-between items-center gap-4 | border-l-2 border-cream'>
