@@ -59,7 +59,7 @@ const Main = () => {
           </button>
         </div>
         <div className={`
-          grid overflow-hidden transition-all duration-300 ease-in-out 
+          grid overflow-hidden transition-all duration-500 ease-in-out 
           ${openForm? 'grid-rows-[1fr] opacity-100': 'grid-rows-[0fr] opacity-0'}
           md:grid-rows-[1fr] md:opacity-100
         `}>
