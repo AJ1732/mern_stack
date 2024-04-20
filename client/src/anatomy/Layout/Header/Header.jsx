@@ -6,14 +6,14 @@ const Header = () => {
     <header>
       <nav className='flex justify-between items-center | py-5 border-b border-shade'>
         <Link to={`/`}>
-          <h1 className='font-semibold text-2xl'>Workouts</h1>
+          <h1 className='font-semibold text-3xl self-start'>Workouts</h1>
         </Link>
 
-        <ul className='text-cream | flex basis-24 gap-2'>
+        {/* <ul className='text-cream | flex basis-24 gap-2'>
           <li>Home</li>
           <li>Home</li>
           <li>Home</li>
-        </ul>
+        </ul> */}
       </nav>
     </header>
   )
