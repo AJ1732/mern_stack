@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   return (
     <header>
-      <nav className='flex justify-between items-center | py-4 border-b border-shade'>
+      <nav className='flex justify-between items-center | py-5 border-b border-shade'>
         <Link to={`/`}>
           <h1 className='font-semibold text-2xl'>Workouts</h1>
         </Link>

@@ -55,7 +55,7 @@
 }
 
 .content-grid.all {
-  grid-template-rows: 100px 1fr 100px;
+  grid-template-rows: 100px 1fr 70px;
 }
 
 .content-grid > :not(.breakout, .full-width) {
