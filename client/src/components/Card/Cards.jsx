@@ -26,7 +26,7 @@ export const DetailsCard = ({ cardKey, id }) => {
   }
 
   return (
-    <article key={cardKey} className='max-w-96 min-w-72 | bg-shade p-5 space-y-2'>
+    <article key={cardKey} className='relative | max-w-96 min-w-72 | bg-shade p-5 space-y-2'>
       <h3 className='text-lg hover:text-primary | transition-all delay-100'>Workout Title</h3>
 
       <div className='px-2 | flex justify-between items-center gap-4 | border-l-2 border-cream'>
@@ -35,7 +35,7 @@ export const DetailsCard = ({ cardKey, id }) => {
       </div>
 
       <p className='pt-5 text-xs font-mono'>Created: <span className='font-medium text-cream'>20th Apr 2024</span></p>
-      <span onClick={handleClick}>delete</span>
+      <button onClick={handleClick} className='absolute top-0 right-3 | bg-transparent font-bold text-primary py-2 px-4 cursor-pointer'>x</button>
     </article>
   )
 }
