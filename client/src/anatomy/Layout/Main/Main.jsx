@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { DetailsCard } from '../../../components/Card/Cards';
 
 const Main = () => {
   const [ workouts, setWorkouts ] = useState(null);
@@ -17,9 +18,6 @@ const Main = () => {
       } catch (error) {
         console.error('Error:', error);
       }
-      // if (response.ok) {
-      //   console.log(json);
-      // }
     }
 
     const text = '[{"first": "Ford", "second":"BMW", "third":"Audi"} ]';
@@ -31,9 +29,9 @@ const Main = () => {
   console.log(workouts);
 
   return (
-    <main>
-      <h2>All Workouts</h2>
-      <section>
+    <main className='space-y-2'>
+      <h2 className='text-xl'>All Workouts</h2>
+      {/* <section>
         {
           workouts? 
           workouts.map((workout) => {
@@ -41,6 +39,11 @@ const Main = () => {
           }):
           <p>No Workouts</p>
         }
+      </section> */}
+      <section className='mt-4 | grid gap-2 md:grid-cols-2 lg:grid-cols-3'>
+        {[1, 2, 3].map( item =>(
+            <DetailsCard key={item} />
+        ))}
       </section>
     </main>
   )
