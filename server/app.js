@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 const mongoose = require('mongoose');
 const { port, dbURI } = require('./utils/config');
 const workoutRoutes = require('./routes/workoutRoutes');
@@ -8,6 +9,11 @@ const app = express();
 
 // MIDDLEWARE
 app.use(express.json());
+app.use(cors({
+  origin: `http://localhost:${port}/`,
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  allowedHeaders: []
+}));
 
 // CONNECT TO DATABASE
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
