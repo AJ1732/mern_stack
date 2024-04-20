@@ -32,7 +32,7 @@ const Main = () => {
   console.log(workouts);
 
   return (
-    <main className='mb-5 | grid md:grid-cols-[1fr,_400px] place-content-center gap-5'>
+    <main className='mb-5 | grid md:grid-cols-[1fr,_400px] content-start place-content-center gap-5'>
       <section className='space-y-2'>
         <h2 className='text-xl'>All Workouts</h2>
 
