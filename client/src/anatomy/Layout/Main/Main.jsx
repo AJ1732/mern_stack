@@ -28,7 +28,7 @@ const Main = () => {
     console.log(myArr)
 
     fetchWorkouts();
-  }, [])
+  }, [dispatch])
   console.log(workouts);
 
   return (
