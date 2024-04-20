@@ -29,21 +29,27 @@ const Main = () => {
   console.log(workouts);
 
   return (
-    <main className='space-y-2'>
-      <h2 className='text-xl'>All Workouts</h2>
-      {/* <section>
-        {
-          workouts? 
-          workouts.map((workout) => {
-            (<p key={workout._id}>Workout</p>)
-          }):
-          <p>No Workouts</p>
-        }
-      </section> */}
-      <section className='mt-4 | grid gap-2 md:grid-cols-2 lg:grid-cols-3'>
-        {[1, 2, 3].map( item =>(
-            <DetailsCard key={item} />
-        ))}
+    <main className='grid grid-cols-[1fr,_400px] gap-5'>
+      <section className='space-y-2'>
+        <h2 className='text-xl'>All Workouts</h2>
+        {/* <section>
+          {
+            workouts? 
+            workouts.map((workout) => {
+              (<p key={workout._id}>Workout</p>)
+            }):
+            <p>No Workouts</p>
+          }
+        </section> */}
+        <section className='mt-4 | grid gap-4 md:grid-cols-2 justify-items-stretch'>
+          {[1, 2, 3].map( item =>(
+              <DetailsCard key={item} />
+          ))}
+        </section>
+      </section>
+      <section>
+        <h2 className='text-xl'>Workout Form</h2>
+        
       </section>
     </main>
   )
