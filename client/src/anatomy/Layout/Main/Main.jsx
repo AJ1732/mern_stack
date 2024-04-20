@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { DetailsCard } from '../../../components/Card/Cards';
 import { WorkoutForm } from '../../../components/Form/Forms';
 import { useWorkoutContext } from '../../../context/ContextProvider';
 
 const Main = () => {
+  const [ openForm, setOpenForm ] = useState(false);
   const { workouts, dispatch } = useWorkoutContext()
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const Main = () => {
 
     fetchWorkouts();
   }, [dispatch])
-  console.log(workouts);
+  // console.log(workouts);
 
   return (
     <main className='mb-5 | grid md:grid-cols-[1fr,_400px] content-start place-content-center gap-5'>
@@ -50,8 +51,20 @@ const Main = () => {
       </section>
 
       <section className='max-w-[600px] space-y-2 | row-start-1 md:row-span-2 '>
-        <h2 className='text-xl'>Add a new Workout Form</h2>
-        <WorkoutForm />
+        <div className='flex justify-between items-center gap-2'>
+          <h2 className='text-xl'>Add New Workout</h2>
+          <button 
+            onClick={() => setOpenForm(!openForm)} className={`md:hidden`}>
+            {openForm? 'Close': 'Add'}
+          </button>
+        </div>
+        <div className={`
+          grid overflow-hidden transition-all duration-300 ease-in-out 
+          ${openForm? 'grid-rows-[1fr] opacity-100': 'grid-rows-[0fr] opacity-0'}
+          md:grid-rows-[1fr] md:opacity-100
+        `}>
+          <WorkoutForm />
+        </div>
       </section>
     </main>
   )

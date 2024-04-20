@@ -58,7 +58,7 @@ export const WorkoutForm = () => {
   };
 
   return (
-    <form action='' onSubmit={handleSubmit} className='bg-shade py-7 px-5 drop-shadow-md'>
+    <form action='' onSubmit={handleSubmit} className='overflow-hidden | bg-shade py-7 px-5 drop-shadow-md'>
       <fieldset className='space-y-6'>
         {/* TITLE INPUT */}
         <div className='field'>
