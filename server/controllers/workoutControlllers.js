@@ -39,12 +39,22 @@ const updateWorkout = async (req, res) => {
   res.status(200).json(updateWorkout)  
 }
 
-const workout_create_get = (req, res) => {
-  res.json({ mssg: 'GET a new workout' }) 
-}
-
 const createWorkout = async (req, res) => {
   const { title, reps, load } = req.body;
+
+  let emptyFields = [];
+
+  if(!title) {
+    emptyFields.push('title')
+  } else if (!load) {
+    emptyFields.push('load')
+  } else if (!reps) {
+    emptyFields.push('reps')
+  }
+
+  if(emptyFields.length > 0) {
+    return res.status(400).json({ error: 'Please filll in all the fields', emptyFields })
+  }
   
   try {
     const workout = await Workout.create({ title, reps, load });
@@ -61,6 +71,5 @@ module.exports = {
   getSingleWorkout,
   deleteWorkout,
   updateWorkout,
-  workout_create_get,
   createWorkout
 }

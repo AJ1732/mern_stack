@@ -11,6 +11,7 @@ export const WorkoutForm = () => {
     load: ""
   })
   const [ error, setError ] = useState(null);
+  const [ emptyFields, setEmptyFields ] = useState([]);
   const { dispatch } = useWorkoutContext();
 
   // FORM FUNCTIONS
@@ -41,10 +42,12 @@ export const WorkoutForm = () => {
 
       if (response.ok) {
         setError(null);
+        emptyFields('')
         dispatch({ type: 'CREATE_WORKOUTS', payload: data })
         console.log('New Workout Posted');
       } else if (!response.ok) {
         setError(json.error)
+        setEmptyFields(json.emptyFields)
         throw new Error('Request failed with status ' + response.status);
       }
     } catch (error) {
@@ -66,6 +69,7 @@ export const WorkoutForm = () => {
             name="title" 
             value={newWorkout.title}
             onChange={handleChange}
+            className={emptyFields.includes('title') && 'bg-red-500' }
            />
         </div>
         
@@ -79,6 +83,7 @@ export const WorkoutForm = () => {
             min={0}
             value={newWorkout.reps}
             onChange={handleChange}
+            className={emptyFields.includes('reps') && 'bg-red-500' }
            />
         </div>
 
@@ -92,6 +97,7 @@ export const WorkoutForm = () => {
             min={0}
             value={newWorkout.load}
             onChange={handleChange}
+            className={emptyFields.includes('load') && 'bg-red-500' }
            />
         </div>
 
