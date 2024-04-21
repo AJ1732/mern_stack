@@ -33,7 +33,7 @@ const Main = () => {
       <section className='space-y-2'>
         <h2 className='text-xl'>All Workouts</h2>
 
-        {/* <section>
+        <section>
           {
             workouts? 
             workouts.map((workout) => {
@@ -41,7 +41,7 @@ const Main = () => {
             }):
             <p>No Workouts</p>
           }
-        </section> */}
+        </section>
 
         <div className='mt-4 | grid gap-4 lg:grid-cols-2 justify-items-stretch'>
           {[1, 2, 3].map( item =>(
