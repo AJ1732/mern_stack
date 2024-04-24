@@ -10,9 +10,10 @@ const Main = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const response = await fetch('/api/workouts/');
+        const response = await fetch('http://localhost:5000/api/workouts/');
         const data = await response.json();
         console.log(data);
+        console.log(response.ok);
 
         if (response.ok) {
           dispatch({ type: 'ALL_WORKOUTS', payload: data })
@@ -26,7 +27,7 @@ const Main = () => {
 
     fetchWorkouts();
   }, [dispatch])
-  // console.log(workouts);
+  console.log(workouts);
 
   return (
     <main className='mb-5 | grid md:grid-cols-[1fr,_400px] content-start place-content-center gap-5'>
@@ -36,18 +37,15 @@ const Main = () => {
         <section>
           {
             workouts? 
-            workouts.map((workout) => {
-              (<p key={workout._id}>Workout</p>)
-            }):
-            <p>No Workouts</p>
+            <div className='mt-4 | grid gap-4 lg:grid-cols-2 justify-items-stretch'>
+              {workouts.map( workout => (
+                <DetailsCard key={workout._id} id={workout._id} workout={workout} />
+              ))}
+            </div>
+            :
+            <p className='bg-shade p-20 rounded'>No Workouts</p>
           }
         </section>
-
-        <div className='mt-4 | grid gap-4 lg:grid-cols-2 justify-items-stretch'>
-          {[1, 2, 3].map( item =>(
-              <DetailsCard key={item} id={item} />
-          ))}
-        </div>
       </section>
 
       <section className='max-w-[600px] space-y-2 | row-start-1 md:row-span-2 '>

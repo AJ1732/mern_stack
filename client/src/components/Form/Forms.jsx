@@ -30,7 +30,7 @@ export const WorkoutForm = () => {
     console.log(newWorkout);
     
     try {
-      const response = await fetch('/api/workouts/', {
+      const response = await fetch('http://localhost:5000/api/workouts/', {
         method: 'POST',
         body: JSON.stringify(newWorkout),
         headers: {
@@ -42,12 +42,12 @@ export const WorkoutForm = () => {
 
       if (response.ok) {
         setError(null);
-        emptyFields('')
+        // emptyFields('')
         dispatch({ type: 'CREATE_WORKOUTS', payload: data })
         console.log('New Workout Posted');
       } else if (!response.ok) {
         setError(json.error)
-        setEmptyFields(json.emptyFields)
+        // setEmptyFields(json.emptyFields)
         throw new Error('Request failed with status ' + response.status);
       }
     } catch (error) {

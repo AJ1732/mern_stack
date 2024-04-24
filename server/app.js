@@ -9,11 +9,7 @@ const app = express();
 
 // MIDDLEWARE
 app.use(express.json());
-app.use(cors({
-  origin: `http://localhost:${port}/`,
-  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-  allowedHeaders: []
-}));
+app.use(cors());
 
 // CONNECT TO DATABASE
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
