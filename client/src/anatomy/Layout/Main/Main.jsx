@@ -10,10 +10,8 @@ const Main = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/workouts/');
+        const response = await fetch('https://server-s3bm.onrender.com/api/workouts');
         const data = await response.json();
-        console.log(data);
-        console.log(response.ok);
 
         if (response.ok) {
           dispatch({ type: 'ALL_WORKOUTS', payload: data })
@@ -27,7 +25,6 @@ const Main = () => {
 
     fetchWorkouts();
   }, [dispatch])
-  console.log(workouts);
 
   return (
     <main className='mb-5 | grid md:grid-cols-[1fr,_400px] content-start place-content-center gap-5'>
@@ -37,13 +34,20 @@ const Main = () => {
         <section>
           {
             workouts? 
-            <div className='mt-4 | grid gap-4 lg:grid-cols-2 justify-items-stretch'>
-              {workouts.map( workout => (
-                <DetailsCard key={workout._id} id={workout._id} workout={workout} />
-              ))}
-            </div>
+            <>
+              {
+                !workouts.length == 0? 
+                <div className='mt-4 | grid gap-4 lg:grid-cols-2 justify-items-stretch'>
+                  {workouts.map( workout => (
+                      <DetailsCard key={workout._id} id={workout._id} workout={workout} />
+                  ))}
+                </div>
+                : 
+                <p className='bg-shade p-20 rounded'>No Workouts</p>
+              }
+            </>
             :
-            <p className='bg-shade p-20 rounded'>No Workouts</p>
+            <p className='bg-shade p-20 rounded'>Loading Workouts</p>
           }
         </section>
       </section>
