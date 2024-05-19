@@ -47,7 +47,7 @@ const Main = () => {
               }
             </>
             :
-            <p className='bg-shade p-20 rounded'>Loading Workouts</p>
+            <p className='bg-shade p-20 rounded'>Loading Workouts... Server seems to be slow. This may take a while</p>
           }
         </section>
       </section>
