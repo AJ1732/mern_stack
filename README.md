@@ -2,6 +2,8 @@
 
 Welcome to the Workout Tracker! This application allows users to log, track, and manage their workouts efficiently. Built using the MERN stack (MongoDB, Express.js, React.js, Node.js), it provides a seamless and interactive user experience.
 
+## Deployed [Link](https://1732-mern-workout.netlify.app/)
+
 ## Table of Contents
 
 1. [Features](#features)
