@@ -12,12 +12,21 @@ export const WorkoutForm = () => {
   // *FORMIK IMPLEMNETATION
   const initialValues = { title: "", reps: "", load: "" };
 
-  const { values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: initialValues,
-      validationSchema: signupValidation,
-      onSubmit: (values, { resetForm }) => {formSubmit(values, resetForm)},
-    });
+  const {
+    values,
+    errors,
+    touched,
+    isSubmitting,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+  } = useFormik({
+    initialValues: initialValues,
+    validationSchema: signupValidation,
+    onSubmit: (values, { resetForm }) => {
+      formSubmit(values, resetForm);
+    },
+  });
 
   // *TO HANDLE FORM SUBMISSION
   const formSubmit = async (values, resetForm) => {
@@ -43,7 +52,7 @@ export const WorkoutForm = () => {
       console.error("Error:", err);
     }
 
-    resetForm()
+    resetForm();
   };
 
   return (
@@ -53,7 +62,13 @@ export const WorkoutForm = () => {
       className="overflow-hidden | bg-shade py-7 px-5 drop-shadow-md"
     >
       <fieldset className="space-y-6">
-        <legend></legend>
+        <legend className="w-full">
+          {!(JSON.stringify(errors) === "{}") && (
+            <h2 className="py-2 px-4 rounded bg-orange-500/10 font-poppins text-orange-500 text-center border border-orange-500  ">
+              Complete the Form
+            </h2>
+          )}
+        </legend>
 
         {/* TITLE INPUT */}
         <div className="field">
@@ -104,6 +119,7 @@ export const WorkoutForm = () => {
           {errors.load && touched.load && <ErrorText>{errors.load}</ErrorText>}
         </div>
 
+        {/* SUBMIT BUTTON */}
         <button
           type="submit"
           disabled={isSubmitting}
