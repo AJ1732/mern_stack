@@ -2,7 +2,7 @@ import React from 'react'
 
 const ErrorText = ({ children }) => {
   return (
-    <small className='text-orange-700'>{ children }</small>
+    <small className='text-orange-500'>{ children }</small>
   )
 }
 
