@@ -62,13 +62,13 @@ export const WorkoutForm = () => {
       className="overflow-hidden | bg-shade py-7 px-5 drop-shadow-md"
     >
       <fieldset className="space-y-6">
-        <legend className="w-full">
+        {/* <legend className="w-full">
           {!(JSON.stringify(errors) === "{}") && (
             <h2 className="py-2 px-4 rounded bg-orange-500/10 font-poppins text-orange-500 text-center border border-orange-500  ">
               Complete the Form
             </h2>
           )}
-        </legend>
+        </legend> */}
 
         {/* TITLE INPUT */}
         <div className="field">
